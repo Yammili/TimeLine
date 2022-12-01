@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h1 align="center">My Gallery</h1> 
+    <div class="card-columns">
+        {% for post in Post %}
+          {% if post.user_id == user.id%}
+              <div class="card card-blog">
+                <a href="/post/post-id:{{post.id}}">
+                {% if post.data != 'hole.jpg' %}
+                  <div class="card-image">
+                    <img class="card-img-top" src="/static/uploads/{{post.data}}" alt="Card image cap">
+                  </div>
+                {% endif %}
+                <div class="table">
+                  <h6 class="categoty text-info">{{post.title}}</h6>
+                  <p class="card-descriptiont">{{post.info}}</p>
+                  <p class="card-text"><span ><b>Data: {{post.date.date()}}</b></span><small class="text-muted float-right">@{{post.user_info.username}}</small> </p>
+                </div>
+                </a>
+              </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}

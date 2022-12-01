@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ Post.title.title() }}{% endblock %}
+
+{% block body %}
+
+<label width="100%">
+<div class="container mt-5">
+    <h2>{{ Post.title.title() }}</h2>
+    
+    <img class="card-img-top" src="/static/uploads/{{Post.data}}" alt="Card image cap"><br></br>
+        <p class="text "><b>{{ Post.info.capitalize() }}</b></p><br>
+        <p class="text ">{{ Post.text }}</p><br>
+        <p class="card-text"><b>Date: {{ Post.date.date() }}</b><span href="" class="card-title float-right">@{{ Post.user_info.username }}</span></p>
+</div>
+</label>
+{% endblock %}

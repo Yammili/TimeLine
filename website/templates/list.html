@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}List{% endblock %}
+
+{% block body %}
+<h1 align="center">List</h1>
+<ul class="list-group  " id="posts">
+  {% for post in Post %}
+    {% if post.user_id == user.id %}
+    <li class="list-group-item list-group-item-dark">
+      Post №{{post.id}}; Title: {{post.title}}; Intro: {{post.info}}
+      <a href="/delete-post/{{post.id}}" class="btn btn-danger float-right" >Delete</a>
+    </li><br>
+    {% endif %}
+  {% endfor %}
+</ul>
+{% endblock %}
